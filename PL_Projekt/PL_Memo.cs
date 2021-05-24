@@ -44,7 +44,7 @@ namespace PL_Projekt
         {
             //Deklaracja listy symboli oraz przypisanie do niej symboli możliwych do odnalezienia w grze.
             List<string> pl_allShapes = new List<string>()
-            {"R", "R", "A", "A", "1", "1", "P", "P", "0", "0", "Y", "Y", "w", "w", "z", "z"};
+            {"O", "O", "U", "U", "p", "p", "v", "v", "Z", "Z", "Y", "Y", "w", "w", "z", "z"};
             //Usunięcie symboli z listy symboli możliwych do odnalezienia w grze.
             pl_shapeLabels.Clear();
             //pętla generująca 16 obiektów typu Label oraz definująca właściwości tych obiektów
@@ -62,9 +62,7 @@ namespace PL_Projekt
                     pl_tempShape.BackColor = Color.CornflowerBlue;
                     //ustalenie właściwości koloru tekstu kontrolki.
                     pl_tempShape.ForeColor = Color.CornflowerBlue;
-                    //
-                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    //
+                    //wylaczenie mozliwosci automatycznej zmiany obiektu tymczasowego symbolu
                     pl_tempShape.AutoSize = false;
                     //ustalenie właściwości określającej wypełnienie kontrolką dostępnej przestrzeni.
                     pl_tempShape.Dock = DockStyle.Fill;
@@ -110,9 +108,7 @@ namespace PL_Projekt
             pl_gameTable.ColumnCount = 4;
             //ustalenie wysokości pierwszego wiersza na 50 px.
             pl_gameTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 50));
-            //
-            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //
+            //ustalenie stylu kolumn planszy gry
             pl_gameTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             //pętla nadająca styl kolejnym 4-em wierszom
             for (int pl_i = 0; pl_i < 4; pl_i++)
@@ -165,9 +161,7 @@ namespace PL_Projekt
             //dodanie siatki ułożenia obiektów do formularza programu. skutkuje to również wyświetleniem
             //wszystkich kontrolek dodanych do tej siatki.
             Controls.Add(pl_gameTable);
-            //
-            //!!!!!!!!!!!!!!!!!!!
-            //
+            //uwolnienie rysowania layoutu table layout panel
             pl_gameTable.ResumeLayout(true);
         }
 
